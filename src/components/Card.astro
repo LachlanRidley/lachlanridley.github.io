@@ -1,0 +1,105 @@
+---
+interface Props {
+  alt?: boolean;
+}
+
+const { alt } = Astro.props;
+---
+
+<div class={`card ${alt ? "alt" : ""}`}>
+  <slot />
+</div>
+
+<style>
+  .card {
+    width: var(--card-size);
+    height: var(--card-size);
+
+    box-sizing: border-box;
+
+    margin: 2rem;
+
+    background-color: #cfff70;
+    border-color: #3ca370;
+    color: #4da6ff;
+
+    border-width: 15px;
+    border-style: solid;
+
+    border-radius: 70px;
+    padding: 0 3rem 1rem 3rem;
+
+    box-shadow:
+      -1px 0 28px 0 rgba(34, 33, 81, 0.01),
+      28px 28px 28px 0 rgba(34, 33, 81, 0.25);
+
+    animation: bop var(--hover-speed) infinite alternate;
+    transition: scale 0.5s;
+    perspective: 1000px;
+    /* rotate: 0.5 -0.5 0.8 5deg; */
+
+    overflow: hidden;
+  }
+
+  .card:hover {
+    scale: 1.1;
+  }
+
+  .card.alt {
+    background-color: #80366b;
+    border-color: #422445;
+    color: #ff6b97;
+
+    /* animation: altbop var(--hover-speed) infinite alternate; */
+  }
+
+  .hearts {
+    font-size: 2rem;
+  }
+
+  a:has(.card) {
+    text-decoration: none;
+  }
+
+  .card .placeholder {
+    margin-left: -3rem;
+    margin-right: -3rem;
+
+    height: 250px;
+    background-color: white;
+  }
+
+  .centre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @keyframes bop {
+    0% {
+      /* translate: 0 15px; */
+      transform: translate(0, 15px) perspective(1000px) rotateY(-4deg);
+      /* 		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7); */
+    }
+
+    100% {
+      translate: 0 0;
+      transform: translate(0, 0) perspective(1000px) rotateY(4deg);
+      /* 		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); */
+    }
+  }
+
+  @keyframes altbop {
+    0% {
+      transform: translate(0, 15px) perspective(1000px) rotateX(0deg)
+        rotateY(-6deg) rotateZ(-2deg);
+      /* 		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7); */
+    }
+
+    100% {
+      transform: translate(0, 0) perspective(1000px) rotateX(0deg) rotateY(6deg)
+        rotateZ(-2deg);
+      /* 		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); */
+    }
+  }
+</style>

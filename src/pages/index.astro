@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+---
+
+<Layout title="Lachlan Ridley">
+  <main>
+    <p class="intro">
+      hiya! I'm Lachlan, and this is my little internet corner
+    </p>
+    <Card>
+      <h1 class="noughts-and-crosses">Noughts + Crosses</h1>
+      <a href="https://github.com/LachlanRidley/noughts-and-crosses">
+        <div class="placeholder centre">Placeholder Image</div>
+      </a>
+    </Card>
+
+    <Card alt>
+      <h1>love me! <span class="hearts">❤️💜💚</span></h1>
+      <ul class="love-links">
+        <li><a href="resume">Resume</a></li>
+        <li><a href="https://github.com/LachlanRidley">GitHub</a></li>
+      </ul>
+    </Card>
+  </main>
+</Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 100vh;
+    padding-top: 1rem;
+  }
+
+  .intro {
+    width: 60%;
+    margin: auto;
+    font-size: 1.5rem;
+  }
+
+  .hearts {
+    font-size: 1.5rem;
+  }
+
+  .noughts-and-crosses {
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2.3rem;
+  }
+
+  .love-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+</style>
