@@ -1,9 +1,11 @@
 @charset "UTF-8";
 
 :root {
-  --background-colour: #4da6ff;
+  --background-colour: #4b5bab;
   --text-colour: #c1f7dc;
   --highlight-colour: #f7003e;
+
+  --accent-color-3: #eb564b;
 
   --card-size: 400px;
 
@@ -11,13 +13,11 @@
 }
 
 body {
-  font-family: Open Sans, Arial;
   background-color: var(--background-colour);
   color: var(--text-colour);
-  font-size: 16px;
-  /* margin:2em auto; */
-  margin: 0;
-  max-width: 800px;
+  max-width: 60ch;
+  margin: auto;
+
   line-height: 1.4;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
@@ -33,10 +33,54 @@ main {
   flex-direction: column;
   align-items: center;
 
-  width: 100vw;
   min-height: 100vh;
   padding-top: 1rem;
 }
+
+.intro {
+  width: 60%;
+  margin: auto;
+  font-size: 1.5rem;
+}
+
+nav ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  list-style: none;
+  padding: 0;
+
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 0.3ex;
+
+  text-underline-offset: 3px;
+  transition: all 0.1s;
+}
+
+a:hover {
+  text-underline-offset: 5px;
+  text-decoration-style: wavy;
+}
+
+li:nth-child(1) a {
+  text-decoration-color: #422445;
+}
+
+li:nth-child(2) a {
+  text-decoration-color: #3ca370;
+}
+
+li:nth-child(3) a {
+  text-decoration-color: var(--accent-color-3);
+}
+
 .card {
   width: var(--card-size);
   height: var(--card-size);
@@ -59,8 +103,15 @@ main {
     28px 28px 28px 0 rgba(34, 33, 81, 0.25);
 
   animation: bop var(--hover-speed) infinite alternate;
+  transition: scale 0.5s;
+  perspective: 1000px;
+  /* rotate: 0.5 -0.5 0.8 5deg; */
 
   overflow: hidden;
+}
+
+.card:hover {
+  scale: 1.1;
 }
 
 .card.alt {
@@ -68,15 +119,22 @@ main {
   border-color: #422445;
   color: #ff6b97;
 
-  animation: altbop var(--hover-speed) infinite alternate;
+  /* animation: altbop var(--hover-speed) infinite alternate; */
 }
 
 .card h1 {
-  font-family: "Permanent Marker", cursive;
-  font-weight: 400;
+  font-family: "Amatic SC", sans-serif;
+  font-weight: 700;
   font-style: normal;
+  font-size: 2.5rem;
+}
 
-  font-size: 1.5rem;
+.hearts {
+  font-size: 2rem;
+}
+
+a:has(.card) {
+  text-decoration: none;
 }
 
 .card .placeholder {
@@ -95,14 +153,14 @@ main {
 
 @keyframes bop {
   0% {
-    transform: translate(0, 15px) perspective(1000px) rotateX(4deg)
-      rotateY(-12deg) rotateZ(2deg);
+    /* translate: 0 15px; */
+    transform: translate(0, 15px) perspective(1000px) rotateY(-4deg);
     /* 		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7); */
   }
 
   100% {
-    transform: translate(0, 0) perspective(1000px) rotateX(4deg) rotateY(-12deg)
-      rotateZ(2deg);
+    translate: 0 0;
+    transform: translate(0, 0) perspective(1000px) rotateY(4deg);
     /* 		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); */
   }
 }
