@@ -24,14 +24,16 @@ const { title } = Astro.props;
     />
   </head>
   <body>
-    <nav>
+    <!-- <nav>
       <ul>
         <li><a href="/">home</a></li>
-        <li><a href="/resume">resume</a></li>
+        <li><a href="/resume">résumé</a></li>
         <li><a href="/posts">posts</a></li>
       </ul>
-    </nav>
-    <slot />
+    </nav> -->
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
 <style is:global>
@@ -62,6 +64,15 @@ const { title } = Astro.props;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+
+    min-height: 99vh;
+    padding-top: 2rem;
   }
 
   nav ul {

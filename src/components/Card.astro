@@ -1,12 +1,13 @@
 ---
 interface Props {
   alt?: boolean;
+  className?: string;
 }
 
-const { alt } = Astro.props;
+const { alt, className } = Astro.props;
 ---
 
-<div class={`card ${alt ? "alt" : ""}`}>
+<div class={`card ${alt ? "alt" : ""} ${className != null ? className : ""}`}>
   <slot />
 </div>
 
@@ -21,7 +22,7 @@ const { alt } = Astro.props;
 
     background-color: #cfff70;
     border-color: #3ca370;
-    color: #4da6ff;
+    color: #473b78;
 
     border-width: 15px;
     border-style: solid;

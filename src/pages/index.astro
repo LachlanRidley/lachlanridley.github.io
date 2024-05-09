@@ -1,40 +1,41 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import noughtsAndCrossesImage from "../images/noughts-and-crosses.png";
+import playdateBadge from "../images/playdate-badge-download.png";
 ---
 
 <Layout title="Lachlan Ridley">
-  <main>
-    <p class="intro">
-      hiya! I'm Lachlan, and this is my little internet corner
-    </p>
+  <p class="intro">hiya! I'm Lachlan, and this is my little internet corner</p>
+  <div class="centre">
     <Card>
-      <h1 class="noughts-and-crosses">Noughts + Crosses</h1>
-      <a href="https://github.com/LachlanRidley/noughts-and-crosses">
-        <div class="placeholder centre">Placeholder Image</div>
+      <a href="https://lachlan-ridley.itch.io/noughts-and-crosses">
+        <h1 class="noughts-and-crosses">Noughts + Crosses</h1>
+        <div class="noughts-image">a</div>
+        <img
+          class="playdate-badge"
+          src={playdateBadge.src}
+          alt="A badge which reads Download for Playdate"
+        />
       </a>
     </Card>
 
     <Card alt>
       <h1>love me! <span class="hearts">❤️💜💚</span></h1>
       <ul class="love-links">
-        <li><a href="resume">Resume</a></li>
+        <!-- <li><a href="resume">Résumé</a></li> -->
         <li><a href="https://github.com/LachlanRidley">GitHub</a></li>
+        <li><a href="https://cloudisland.nz/@lachlan_ridley">Mastodon</a></li>
       </ul>
     </Card>
-  </main>
+  </div>
 </Layout>
 
-<style>
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    min-height: 100vh;
-    padding-top: 1rem;
-  }
-
+<style
+  define:vars={{
+    bgImage: `url(${noughtsAndCrossesImage.src})`,
+  }}
+>
   .intro {
     width: 60%;
     margin: auto;
@@ -45,11 +46,36 @@ import Card from "../components/Card.astro";
     font-size: 1.5rem;
   }
 
+  .centre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .noughts-and-crosses {
-    font-family: "Amatic SC", sans-serif;
-    font-weight: 700;
     font-style: normal;
     font-size: 2.3rem;
+    font-weight: bold;
+  }
+
+  .noughts-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    height: 120%;
+    /* background-image: var(--bgImage) !important; */
+    background-blend-mode: multiply;
+    background-color: #cfff70;
+  }
+
+  .playdate-badge {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 2rem;
+    width: 40%;
   }
 
   .love-links {
