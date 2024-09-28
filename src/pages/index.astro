@@ -8,10 +8,9 @@ import playdateBadge from "../images/playdate-badge-download.png";
 <Layout title="Lachlan Ridley">
   <p class="intro">hiya! I'm Lachlan, and this is my little internet corner</p>
   <div class="cards">
-    <Card heading="Noughts + Crosses">
+    <Card class="green-card">
+      <h2>Noughts + Crosses</h2>
       <a href="https://lachlan-ridley.itch.io/noughts-and-crosses">
-        <!-- <h1 class="noughts-and-crosses">Noughts + Crosses</h1> -->
-        <div class="noughts-image">a</div>
         <img
           class="playdate-badge"
           src={playdateBadge.src}
@@ -20,10 +19,9 @@ import playdateBadge from "../images/playdate-badge-download.png";
       </a>
     </Card>
 
-    <Card alt>
-      <h1>love me! <span class="hearts">❤️💜💚</span></h1>
+    <Card class="purple-card">
+      <h2>love me! <span class="hearts">❤️💜💚</span></h2>
       <ul class="love-links">
-        <!-- <li><a href="resume">Résumé</a></li> -->
         <li><a href="https://github.com/LachlanRidley">GitHub</a></li>
         <li><a href="https://cloudisland.nz/@lachlan_ridley">Mastodon</a></li>
       </ul>
@@ -36,6 +34,25 @@ import playdateBadge from "../images/playdate-badge-download.png";
     bgImage: `url(${noughtsAndCrossesImage.src})`,
   }}
 >
+  .green-card {
+    background-color: #cfff70;
+    border-color: #3ca370;
+    color: #473b78;
+  }
+
+  .green-card h2 {
+    background-color: #3ca370;
+    padding: 1rem 4rem;
+    margin: 0 -4rem;
+    width: 100%;
+  }
+
+  .purple-card {
+    background-color: #80366b;
+    border-color: #422445;
+    color: #ff6b97;
+  }
+
   .cards {
     display: flex;
     flex-direction: row;
@@ -50,7 +67,7 @@ import playdateBadge from "../images/playdate-badge-download.png";
   }
 
   .hearts {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .centre {
@@ -63,19 +80,6 @@ import playdateBadge from "../images/playdate-badge-download.png";
     font-style: normal;
     font-size: 2.3rem;
     font-weight: bold;
-  }
-
-  .noughts-image {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    height: 120%;
-    /* background-image: var(--bgImage) !important; */
-    background-blend-mode: multiply;
-    background-color: #cfff70;
   }
 
   .playdate-badge {

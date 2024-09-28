@@ -1,16 +1,13 @@
 ---
 interface Props {
-  alt?: boolean;
-  className?: string;
-  heading?: string;
+  class?: string;
 }
 
-const { alt, className, heading } = Astro.props;
+const { class: className, ...rest } = Astro.props;
 ---
 
-<div class={`card ${alt ? "alt" : ""} ${className != null ? className : ""}`}>
+<div class:list={['card', className ]} {...rest}>
   <slot />
-  {heading ? <h1>{heading}</h1> : null}
 </div>
 
 <style>
@@ -22,13 +19,6 @@ const { alt, className, heading } = Astro.props;
 
     margin: 2rem;
 
-    background-color: #cfff70;
-    border-color: #3ca370;
-    color: #473b78;
-
-    /* border-width: 15px;
-    border-style: solid; */
-
     border-radius: 35px;
     padding: 0 3rem 1rem 3rem;
 
@@ -39,43 +29,16 @@ const { alt, className, heading } = Astro.props;
     animation: bop var(--hover-speed) infinite alternate;
     transition: scale 0.5s;
     perspective: 1000px;
-    /* rotate: 0.5 -0.5 0.8 5deg; */
 
     overflow: hidden;
-  }
-
-  .card h1 {
-    background-color: #3ca370;
-    padding: 1rem 4rem;
-    margin: 0 -4rem;
   }
 
   .card:hover {
     scale: 1.1;
   }
 
-  .card.alt {
-    background-color: #80366b;
-    border-color: #422445;
-    color: #ff6b97;
-
-    /* animation: altbop var(--hover-speed) infinite alternate; */
-  }
-
-  .hearts {
-    font-size: 2rem;
-  }
-
   a:has(.card) {
     text-decoration: none;
-  }
-
-  .card .placeholder {
-    margin-left: -3rem;
-    margin-right: -3rem;
-
-    height: 250px;
-    background-color: white;
   }
 
   .centre {
